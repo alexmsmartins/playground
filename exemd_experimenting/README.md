@@ -13,17 +13,6 @@ digraph {
         e -> b[label="0.7",weight="0.7"];
     }
 ```
-A sequence diagram (to experiment with later):
-```plantuml
-@startuml
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
-
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
-@enduml
-```
-
 
 **20180821**
 
@@ -105,3 +94,39 @@ And, by running
 exemd README.md > README.html
 ```
 I got it to work.
+
+## Running plantuml (or other stuff with no plugins)
+
+What would be awesome is if `exemd` could actually call the command after the `{` in the shell.
+
+The test case as a sequence diagram 
+```{plantuml !}
+@startuml
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: another authentication Response
+@enduml
+```
+
+The previous error appears again.
+
+```fish
+ I  ~/g/a/playground   *  exemd_experimenting  exemd README.md > README_with_plantuml.html
+Possibly unhandled TypeError: it.to is not a function
+    at convert (/Users/amartins/.nvm/versions/node/v8.11.3/lib/node_modules/exemd/index.js:183:16)
+    at tryCatch1 (/Users/amartins/.nvm/versions/node/v8.11.3/lib/node_modules/exemd/node_modules/bluebird/js/main/util.js:45:21)
+    at Promise$_callHandler [as _callHandler] (/Users/amartins/.nvm/versions/node/v8.11.3/lib/node_modules/exemd/node_modules/bluebird/js/main/promise.js:660:13)
+    at Promise$_settlePromiseFromHandler [as _settlePromiseFromHandler] (/Users/amartins/.nvm/versions/node/v8.11.3/lib/node_modules/exemd/node_modules/bluebird/js/main/promise.js:675:18)
+    at Promise$_settlePromiseAt [as _settlePromiseAt] (/Users/amartins/.nvm/versions/node/v8.11.3/lib/node_modules/exemd/node_modules/bluebird/js/main/promise.js:845:14)
+    at Promise$_settlePromises [as _settlePromises] (/Users/amartins/.nvm/versions/node/v8.11.3/lib/node_modules/exemd/node_modules/bluebird/js/main/promise.js:988:14)
+    at Async$_consumeFunctionBuffer [as _consumeFunctionBuffer] (/Users/amartins/.nvm/versions/node/v8.11.3/lib/node_modules/exemd/node_modules/bluebird/js/main/async.js:77:12)
+    at Async$consumeFunctionBuffer (/Users/amartins/.nvm/versions/node/v8.11.3/lib/node_modules/exemd/node_modules/bluebird/js/main/async.js:40:14)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+    at process._tickCallback (internal/process/next_tick.js:180:9)
+```
+
+## How does `exemd-dot` work?
+
+

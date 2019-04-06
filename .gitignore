@@ -115,4 +115,3 @@ cabal.project.local~
 .ghc.environment.*
 
 .idea
-**.iml

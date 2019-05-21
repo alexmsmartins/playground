@@ -17,3 +17,7 @@ main = do
           (T.lines text)
   mapM_ (\(key, value) -> print (key, value)) (M.toList histo)
   putStrLn "Hello"
+
+somef :: x -> y -> z
+somef = x + y 
+

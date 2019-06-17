@@ -115,3 +115,6 @@ cabal.project.local~
 .ghc.environment.*
 
 .idea
+
+# Scala
+target/

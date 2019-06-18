@@ -1,7 +1,6 @@
 package alexmsmartins.shapeless_with_traits
 
 import shapeless._
-import shapeless.record._
 
 sealed trait A {
   val a: String
@@ -12,19 +11,22 @@ case class AA(override val a: String, override val b: Int, l: Long) extends A
 case class BB(a: String, b: Int, s: String) extends A
 object Main extends App {
 
-  implicit val (aPath, bPath) = (^.a, ^.b)
+  val aPath = ^ a
+  val bPath = ^ b
+
   Console.println("Hello")
+
   def updateA[T](param: T, aString: String, bInt: Int)(
-               implicit
-               aL: aPath.Lens[T, String],
-               bL: bPath.Lens[T, Int],
+    implicit
+    aL: aPath.Lens[T, String],
+    bL: bPath.Lens[T, Int],
   ): T = {
-    val param1 = aL().set(param)(aString)
+    val param1: T = aL().set(param)(aString)
     bL().set(param1)(bInt)
   }
 
-  val aa1: AA = AA("aa", 1, 1l)
-  val aaCopied: AA = updateA[AA](aa1, "Updated", 9000)
+  val aa1 = AA("aa", 1, 1l)
+  val aaCopied = updateA(aa1, "Updated", 9000)
   Console.println(aaCopied)
 
 }

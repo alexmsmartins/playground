@@ -176,4 +176,17 @@ Configuration file: /Users/amartins/github/thecatinthelab/thecatinthelab.github.
 
 # Changing the theme.
 
+**20190915**
+
+We have already decided what theme will be used in the first iteration of the Blog - https://github.com/jekyller/jasper2
+
+However, I leave here the features that are important to us:
+- Support different authors.
+- mathematics - covered by Jekyll as long as the theme supports MathJax.
+- list of posts on the left side OR on an easy to navigate page
+- comments.
+
+# Installing Jasper2
+
+
 

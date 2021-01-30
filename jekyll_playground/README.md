@@ -186,7 +186,9 @@ However, I leave here the features that are important to us:
 - list of posts on the left side OR on an easy to navigate page
 - comments.
 
-# Installing Jasper2
+**20200530**
+
+
 
 
 
